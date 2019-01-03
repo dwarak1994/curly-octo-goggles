@@ -1,44 +1,48 @@
-"""
-import sqlite3 # importing sqlite3
 
 
-conn = sqlite3.connect('test.db')
+'''
 
-c = conn.cursor()
+def even_odd(x):
+	
+	if(x%2==0):
+		return 0
+	else:
+		return 1
 
-# Create table
-#c.execute(''' CREATE TABLE dwarak(id INTEGER PRIMARY KEY ASC, name varchar(250) NOT NULL)''')
-
-#insert data
-#c.execute("insert into dwarak values (1,'dwarak')")
-#c.execute("insert into dwarak values (2,'dwarak')")
-#c.execute("insert into dwarak values (3,'prasad')")
-#c.execute("insert into dwarak values (4,'sandeep')")
-#c.execute("insert into dwarak values (6,'dwarak')")
-for row in (c.execute('select * from dwarak')):
-    print(row)
+def length(x):
+	y=0
+	for i in x:
+		y=y+1
+	return y
 
 
-conn.commit()
-conn.close()
+	
+def sum_odds(x):
+	y=0
+	for i in range(length(x)):
+		if even_odd(x[i])==1:
+			y=y+x[i]
+	return y
 
-"""
-"""
-import mysql.connector
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="root"
-)
+x=[1,2,3,4,5,9]
+y=[412,452,346,635,45,65363,5425,78]
 
-import mysql.connector
+print(sum_odds(x))
+print(sum_odds(y))
 
-cnx = mysql.connector.connect(user='root', password='root',
-                              host='127.0.0.1', database='mydb',
-                              auth_plugin='mysql_native_password')
+'''
 
-#print(mydb)
+from flask import Flask
 
-"""
+app=Flask(__name__)
 
+@app.route('/')
+def hello():
+    return "HELLO WORLD"
+
+if __name__=='__main__':
+    app.run(debug=True)
+
+
+## REST API
