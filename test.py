@@ -31,7 +31,7 @@ mydb = mysql.connector.connect(
   user="root",
   passwd="root"
 )
-"""
+
 import mysql.connector
 
 cnx = mysql.connector.connect(user='root', password='root',
@@ -39,3 +39,6 @@ cnx = mysql.connector.connect(user='root', password='root',
                               auth_plugin='mysql_native_password')
 
 #print(mydb)
+
+"""
+
